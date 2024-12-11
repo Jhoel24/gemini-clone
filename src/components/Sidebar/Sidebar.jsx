@@ -15,16 +15,28 @@ const {
 const Sidebar = () => {
 
     const [extended, setExtended] = useState(false);
+    const [delayed, setDelayed] = useState(false);
+
+    const handleExtended = () => {
+        setExtended(prev => !prev)
+        if(!extended) {
+            setTimeout(() => {
+                setDelayed(true)
+            }, 400)
+        } else {
+            setDelayed(false);
+        }
+    }
 
     return (
-        <div className='sidebar' >
+        <div className={`sidebar ${extended ? 'extended' : ''}`} >
             <div className="top">
-                <img className='menu' src={menu_icon} alt="" />
+                <img onClick={handleExtended} className='menu' src={menu_icon} alt="" />
                 <div className="new-chat">
                     <img src={plus_icon} alt="" />
-                    {extended ? <p>New Chat</p> : null}
+                    {delayed ? <p>New Chat</p> : null}
                 </div>
-                { extended ? 
+                { delayed ? 
                     <div className="recent">
                         <p className="recent-title">Recent</p>
                         <div className="recent-entry">
@@ -38,15 +50,15 @@ const Sidebar = () => {
             <div className="bottom">
                 <div className="bottom-item recent-entry">
                     <img src={question_icon} alt="" />
-                    {extended ? <p>Help</p> : null}
+                    {delayed ? <p>Help</p> : null}
                 </div>
                 <div className="bottom-item recent-entry">
                     <img src={history_icon} alt="" />
-                    {extended ? <p>Activity</p> : null}
+                    {delayed ? <p>Activity</p> : null}
                 </div>
                 <div className="bottom-item recent-entry">
                     <img src={setting_icon} alt="" />
-                    {extended ? <p>Settings</p> : null}
+                    {delayed ? <p>Settings</p> : null}
                 </div>
             </div>
         </div>

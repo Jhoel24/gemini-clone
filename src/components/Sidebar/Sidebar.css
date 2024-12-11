@@ -3,8 +3,16 @@
     display: inline-flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: start;
     background-color: #f0f4f9;
     padding: 25px 15px;
+    overflow: hidden;
+    width: 80px;
+    transition: width .5s ease;
+}
+
+.sidebar.extended {
+    width: 250px;
 }
 
 .sidebar img {
@@ -65,4 +73,17 @@
 .sidebar .bottom-item {
     padding-right: 10px;
     cursor: pointer;
+}
+
+/* Estilos de los textos */
+.sidebar p {
+    opacity: 0; /* Ocultos por defecto */
+    max-width: 0; /* Evita que ocupen espacio */
+    overflow: hidden; /* Evita el desbordamiento */
+    transition: opacity 0.3s ease, max-width 0.3s ease; /* Transiciones suaves */
+}
+
+.sidebar.extended p {
+    opacity: 1; /* Visibles cuando el sidebar está extendido */
+    max-width: 200px; /* Ajusta el ancho máximo de los textos */
 }
