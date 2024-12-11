@@ -25,6 +25,10 @@
     cursor: pointer;
 }
 
+.sidebar .top {
+    width: 100%;
+}
+
 .sidebar .new-chat {
     margin-top: 50px;
     display: inline-flex;
@@ -36,11 +40,17 @@
     font-size: 14px;
     color: grey;
     cursor: pointer;
+    transition: padding .3s ease;
+}
+
+.sidebar.extended .new-chat{
+    padding: 10px 25px;
 }
 
 .sidebar .recent {
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
 .sidebar .recent .recent-title {
@@ -58,6 +68,7 @@
     border-radius: 50px;
     color: #282828;
     cursor: pointer;
+    width: 100%;
 }
 
 .sidebar .recent-entry:hover {
@@ -68,6 +79,7 @@
 .sidebar .bottom {
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
 .sidebar .bottom-item {

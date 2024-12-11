@@ -22,7 +22,7 @@ const Sidebar = () => {
         if(!extended) {
             setTimeout(() => {
                 setDelayed(true)
-            }, 400)
+            }, 300)
         } else {
             setDelayed(false);
         }
